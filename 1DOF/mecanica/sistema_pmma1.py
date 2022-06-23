@@ -3,12 +3,23 @@ class sistema_pmma1():
     e amortecimento proporcional.
     """
 
+    def __init__(self, m1, k1, beta):
+        self.m1 = m1
+        self.k1 = k1
+        self.a1 = (beta*k1)
 
-def __init__(self, m1, k1, beta):
-    self.m1 = m1
-    self.k1 = k1
-    self.a1 = (beta*k1)
+    def show(self):
+        print(f"Massa: {self.m1}\n")
+        print(f"Rigidez: {self.k1}\n")
+        print(f"Amortecimento: {self.a1}")
 
+    def resonances(self, interval):
+        f = lambda w: (-w**2*self.m1 + self.k1)
+        domain = np.arrange(0, interval)
+        roots = []
 
-def show(self):
-    print(f"Massa: {self.m1}\nRigidez: {self.k1}\nAmortecimento: {self.a1}")
+        for bogey in domain:
+            new_root = round(abs(fsolve(f, bogey)[0]), 2)
+            if new_root not in roots:
+                roots.append(new_root)
+        return np.sort(roots)
