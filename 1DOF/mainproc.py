@@ -1,8 +1,5 @@
 # Importações #################################################################
-import numpy as np
-import numpy.linalg as la
-import matplotlib.pyplot as plt
-from scipy.optimize import fsolve
+
 from mecanica.sistema_pmma1 import sistema_pmma1 as pmma1
 
 

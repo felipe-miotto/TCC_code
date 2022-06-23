@@ -1,3 +1,9 @@
+import numpy as np
+import numpy.linalg as la
+import matplotlib.pyplot as plt
+from scipy.optimize import fsolve
+
+
 class sistema_pmma1():
     """Representação de um sistema com 1 grau de liberdade
     e amortecimento proporcional.
@@ -7,6 +13,10 @@ class sistema_pmma1():
         self.m1 = m1
         self.k1 = k1
         self.a1 = (beta*k1)
+        self.w0 = 0
+        self.Modes = []
+        self.GenMass = []
+        self.GenStiff = []
 
     def show(self):
         print(f"Massa: {self.m1}\n")
