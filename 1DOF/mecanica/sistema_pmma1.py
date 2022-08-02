@@ -33,3 +33,15 @@ class sistema_pmma1():
             if new_root not in roots:
                 roots.append(new_root)
         return np.sort(roots)
+
+    def modes(self, omega):
+        X1 = 1
+        return np.array([X1])
+
+    def setFrequencies(self, omegas):
+        self.w0 = omegas[0]
+
+    def getModes(self):
+        shape_0 = sistema_pmma1.modes(omegas[0])
+        self.Modes = np.concatenate((shape_0), axis=1)
+        return self.Modes
