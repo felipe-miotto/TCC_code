@@ -45,3 +45,7 @@ class sistema_pmma1():
         shape_0 = sistema_pmma1.modes(omegas[0])
         self.Modes = np.concatenate((shape_0), axis=1)
         return self.Modes
+
+    def getGenMass(self):
+        Mass = np.diag([self.m1])
+        return np.matmul(np.matmul(np.transpose(modes),Mass),modes) 
